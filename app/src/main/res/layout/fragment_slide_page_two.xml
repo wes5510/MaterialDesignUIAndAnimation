@@ -1,0 +1,35 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/fragmentSlideTwoImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/two_icon" />
+
+        <TextView
+            android:id="@+id/fragmentSlideTwoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/fragmentSlideOneImage"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/fragmentSlideOneImage"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="107dp"
+            android:text="two"
+            android:textSize="30dp" />
+
+    </RelativeLayout>
+
+</ScrollView>
