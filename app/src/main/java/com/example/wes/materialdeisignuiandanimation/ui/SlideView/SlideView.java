@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.example.wes.materialdeisignuiandanimation.R;
 
@@ -24,16 +23,16 @@ public class SlideView extends FragmentActivity implements ViewPager.OnPageChang
         setContentView(R.layout.activity_slide_view);
 
         pager = (ViewPager) findViewById(R.id.pager);
-        setupViewPapage(pager);
+        setupViewpage(pager);
 
         pager.setOnPageChangeListener(this);
     }
 
-    private void setupViewPapage(ViewPager viewPager) {
+    private void setupViewpage(ViewPager viewPager) {
         FragmentManager fm = getSupportFragmentManager();
         pagerAdapter = new SlidePagerAdapter(fm);
-        pagerAdapter.addFragment(new SlidePageFragmentOne(), "ONE");
-        pagerAdapter.addFragment(new SlidePageFragmentTwo(), "TWO");
+        pagerAdapter.addFragment(new AnimationFragmentOne());
+        pagerAdapter.addFragment(new AnimationFragmentTwo());
 
         viewPager.setAdapter(pagerAdapter);
     }
@@ -44,8 +43,8 @@ public class SlideView extends FragmentActivity implements ViewPager.OnPageChang
 
     @Override
     public void onPageSelected(int position) {
-        SlidePageFragment slidePageFragment = (SlidePageFragment) pagerAdapter.getItem(pager.getCurrentItem());
-        slidePageFragment.startAnimation();
+        AnimationFragment animationFragment = (AnimationFragment) pagerAdapter.getItem(pager.getCurrentItem());
+        animationFragment.startAnimation();
     }
 
     @Override
@@ -69,7 +68,7 @@ public class SlideView extends FragmentActivity implements ViewPager.OnPageChang
             return fragmentList.get(position);
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             fragmentList.add(fragment);
         }
 

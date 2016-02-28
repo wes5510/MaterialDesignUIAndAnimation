@@ -37,6 +37,7 @@ public class AnimationFragmentOne extends AnimationFragment {
         return rootView;
     }
 
+    @Override
     public void setupAnimation(View view) {
         animfadeIn = AnimationUtils.loadAnimation(view.getContext(),
                 R.anim.fade_in);

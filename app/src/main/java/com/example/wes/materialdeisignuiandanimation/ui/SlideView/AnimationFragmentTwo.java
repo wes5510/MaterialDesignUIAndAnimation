@@ -36,6 +36,7 @@ public class AnimationFragmentTwo extends AnimationFragment {
         return rootView;
     }
 
+    @Override
     public void setupAnimation(View view) {
         animMove = AnimationUtils.loadAnimation(view.getContext(),
                 R.anim.move);
