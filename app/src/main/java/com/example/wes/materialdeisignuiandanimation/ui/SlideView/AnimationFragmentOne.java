@@ -39,10 +39,9 @@ public class AnimationFragmentOne extends AnimationFragment {
 
     @Override
     public void setupAnimation(View view) {
-        animfadeIn = AnimationUtils.loadAnimation(view.getContext(),
-                R.anim.fade_in);
-        animZoomIn = AnimationUtils.loadAnimation(view.getContext(),
-                R.anim.zoom_in);
+        AnimationCollection ac = new AnimationCollection();
+        animfadeIn = ac.getFadeInAnimation(view.getContext());
+        animZoomIn = ac.getZoominAnimation(view.getContext());
     }
 
     @Override

@@ -38,10 +38,10 @@ public class AnimationFragmentTwo extends AnimationFragment {
 
     @Override
     public void setupAnimation(View view) {
-        animMove = AnimationUtils.loadAnimation(view.getContext(),
-                R.anim.move);
-        animRotate = AnimationUtils.loadAnimation(view.getContext(),
-                R.anim.rotate);
+        AnimationCollection ac = new AnimationCollection();
+
+        animMove = ac.getMoveAnimation(view.getContext());
+        animRotate = ac.getRotateAnimation(view.getContext());
     }
 
     @Override

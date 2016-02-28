@@ -27,27 +27,47 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemClick
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+        ItemData itemsData[] = setupItemData();
+
+        setupRecyclerView(itemsData);
+    }
+
+    private ItemData[] setupItemData() {
         ItemData itemsData[] = {new ItemData("TabLayout And ViewPaper", R.drawable.icon),
                 new ItemData("Collapsing Toolbar And ScrollView", R.drawable.icon),
                 new ItemData(getString(R.string.RecyclerViewAndRippleEffect), R.drawable.icon),
                 new ItemData("SlideView And Animation", R.drawable.icon)};
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        return itemsData;
+    }
+
+    private void setupRecyclerView(ItemData itemsData[]) {
+        setupRecyclerViewAdapter(itemsData);
+        setupRecyclerViewLayout();
+        setupRecyclerViewItemDecoration();
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        setupRecyclerViewItemListener();
+
+    }
+
+    private void setupRecyclerViewAdapter(ItemData itemsData[]) {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemsData);
-
         recyclerView.setAdapter(recyclerViewAdapter);
+    }
 
+    private void setupRecyclerViewLayout() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
+    }
 
+    private void setupRecyclerViewItemDecoration() {
         RecyclerView.ItemDecoration itemDecoration =
                 new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(itemDecoration);
+    }
 
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+    private void setupRecyclerViewItemListener() {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this.getApplicationContext(), this));
-
     }
 
     @Override

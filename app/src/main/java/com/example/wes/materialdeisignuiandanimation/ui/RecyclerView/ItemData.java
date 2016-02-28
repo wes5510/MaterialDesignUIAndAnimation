@@ -17,15 +17,7 @@ public class ItemData {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public int getImageUrl() {
         return imageUrl;
-    }
-
-    public void setImageUrl(int imageUrl) {
-        this.imageUrl = imageUrl;
     }
 }

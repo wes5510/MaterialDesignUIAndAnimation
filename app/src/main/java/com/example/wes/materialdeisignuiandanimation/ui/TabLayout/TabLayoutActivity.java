@@ -15,13 +15,13 @@ public class TabLayoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tab_layout);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPaper);
-        setupViewPapage(viewPager);
+        setupViewPpage(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    private void setupViewPapage(ViewPager viewPager) {
+    private void setupViewPpage(ViewPager viewPager) {
         ViewPaperAdapter viewPaperAdapter = new ViewPaperAdapter(getSupportFragmentManager());
         viewPaperAdapter.addFragment(new PaperFragmentOne(), "ONE");
         viewPaperAdapter.addFragment(new PaperFragmentTwo(), "TWO");
